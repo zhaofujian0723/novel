@@ -122,6 +122,7 @@ class Book(object):
             html = etree.HTML(content)
             book_list = html.xpath('//table[@class="grid"]/tr')
             book_list2 = []
+            print("搜索结果如下")
             for book in book_list:
                 b_name = book.xpath('./td[@class="even"]/a/text()')
                 if b_name:
@@ -129,7 +130,6 @@ class Book(object):
                     b_id = book.xpath('./td[@class="even"]/a/@href')[0]
                     b_author = book .xpath('./td[@class="even"]/text()')[0]
                     book_list2.append((b_name, b_id))
-                    print("搜索结果如下")
                     print(b_name, b_id, b_author)
                     print("")
             name = input("请从输入以上列表中的书籍名或输入NO退出:")
@@ -186,7 +186,7 @@ class Book(object):
 
 if __name__ == '__main__':
     # book_name = input("书籍名:")
-    book_name = "明天下"
+    book_name = "圣光"
     book = Book()
     book.start(book_name)
 
